@@ -187,7 +187,7 @@ func getAccessibleDatastores(ctx context.Context, nodeVmDetail *NodeDetails, nod
 
 // Get all datastores accessible for the virtual machine object.
 func getSharedDatastoresInK8SCluster(ctx context.Context, dc *vclib.Datacenter, nodeManager *NodeManager) ([]*vclib.DatastoreInfo, error) {
-	nodeVmDetails := nodeManager.GetNodeDetails()
+	nodeVmDetails, _ := nodeManager.GetNodeDetails()
 	if nodeVmDetails == nil || len(nodeVmDetails) == 0 {
 		msg := fmt.Sprintf("Kubernetes node nodeVmDetail details is empty. nodeVmDetails : %+v", nodeVmDetails)
 		glog.Error(msg)
